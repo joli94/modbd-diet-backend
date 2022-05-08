@@ -52,7 +52,7 @@ public class RegistrationServiceTest {
                 .last_name("Apostol")
                 .target("slabire")
                 .birth_date(LocalDate.now())
-                .isAdmin(false)
+                .isAdmin("none")
                 .gender("M")
                 .city(City.builder().id(1L).name("Bucuresti").country(Country.builder().id(1L).name("Romania").build()).build())
                 .account(Account.builder().id(1L).build())

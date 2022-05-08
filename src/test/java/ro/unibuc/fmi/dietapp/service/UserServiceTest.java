@@ -45,7 +45,7 @@ public class UserServiceTest {
                 .last_name("Apostol")
                 .target("slabire")
                 .birth_date(LocalDate.now())
-                .isAdmin(false)
+                .isAdmin("none")
                 .gender("M")
                 .city(City.builder().id(1L).name("Bucuresti").country(Country.builder().id(1L).name("Romania").build()).build())
                 .account(Account.builder().id(1L).build())
@@ -219,7 +219,7 @@ public class UserServiceTest {
                 .last_name("Apostol")
                 .target("slabire")
                 .birth_date(LocalDate.now())
-                .isAdmin(false)
+                .isAdmin("none")
                 .gender("M")
                 .city(City.builder().id(1L).name("Bucuresti").country(Country.builder().id(1L).name("Romania").build()).build())
                 .account(Account.builder().id(1L).build())
@@ -291,10 +291,10 @@ public class UserServiceTest {
     @DisplayName("Change admin rights for an user - user becomes admin")
     public void test_changeAdmin_userBecomesAdmin() {
         Long id = expected.getId();
-        expected.setIsAdmin(true);
+        expected.setIsAdmin("none");
 
         User user = expected;
-        user.setIsAdmin(false);
+        user.setIsAdmin("none");
 
         when(repository.findById(id)).thenReturn(Optional.of(user));
         when(repository.save(user)).thenReturn(expected);
@@ -309,10 +309,10 @@ public class UserServiceTest {
     @DisplayName("Change admin rights for an user - user loses admin")
     public void test_changeAdmin_userLosesAdmin() {
         Long id = expected.getId();
-        expected.setIsAdmin(false);
+        expected.setIsAdmin("none");
 
         User user = expected;
-        user.setIsAdmin(true);
+        user.setIsAdmin("none");
 
         when(repository.findById(id)).thenReturn(Optional.of(user));
         when(repository.save(user)).thenReturn(expected);
