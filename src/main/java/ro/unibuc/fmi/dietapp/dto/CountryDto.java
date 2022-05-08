@@ -12,4 +12,5 @@ public class CountryDto {
 
     private String name;
     private String code;
+    private String region;
 }
