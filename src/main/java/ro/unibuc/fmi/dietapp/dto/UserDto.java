@@ -13,18 +13,21 @@ import java.time.LocalDate;
 public class UserDto {
     private Long id;
 
-    private String username;
     private String first_name;
     private String last_name;
 
     private String target;
 
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    private LocalDate birth_date;
-
     private String gender;
 
-    private Long cityId;
+    private String username;
 
-    private Boolean isAdmin;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate birth_date;
+    private String cnp;
+    private String cardNumber;
+
+    private String isAdmin;
+
+    private Long cityId;
 }
