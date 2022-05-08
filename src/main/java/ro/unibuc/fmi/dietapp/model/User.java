@@ -2,6 +2,7 @@ package ro.unibuc.fmi.dietapp.model;
 
 import lombok.*;
 
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
@@ -16,24 +17,27 @@ import java.util.List;
 @Builder
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    //@GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "USER_ID")
     private Long id;
 
-    @Column(unique = true)
-    private String username;
     private String first_name;
     private String last_name;
 
     private String target;
 
-    private LocalDate birth_date;
-
-    @Column(columnDefinition = "number(1) default 0")
-    private Boolean isAdmin;
-
     @Column(columnDefinition = "varchar2(1)")
     private String gender;
+
+    @Column(unique = true)
+    private String username;
+
+    private LocalDate birth_date;
+    private String cnp;
+    private String cardNumber;
+
+    @Column(columnDefinition = "varchar2(4) default 'none'")
+    private String isAdmin;
 
     @ManyToMany
     @JoinTable(name = "USER_OPTIMUMS",
