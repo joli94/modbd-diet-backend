@@ -54,7 +54,7 @@ public class UserService {
     public void changeAdmin(Long id) {
         User toBeChanged = findById(id);
 
-        toBeChanged.setIsAdmin(!toBeChanged.getIsAdmin());
+        toBeChanged.setIsAdmin("NONE");
 
         userRepository.save(toBeChanged);
     }
