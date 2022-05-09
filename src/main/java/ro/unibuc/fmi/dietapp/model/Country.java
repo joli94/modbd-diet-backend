@@ -1,11 +1,13 @@
 package ro.unibuc.fmi.dietapp.model;
 
 import lombok.*;
+import org.hibernate.annotations.Immutable;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Immutable
 
 @Getter
 @Setter
