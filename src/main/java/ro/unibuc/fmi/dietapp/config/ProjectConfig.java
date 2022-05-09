@@ -18,11 +18,6 @@ public class ProjectConfig {
     }
 
     @Bean
-    public CityMapper cityMapper() {
-        return new CityMapperImpl();
-    }
-
-    @Bean
     public CountryMapper countryMapper() {
         return new CountryMapperImpl();
     }

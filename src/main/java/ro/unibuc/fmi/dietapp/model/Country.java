@@ -30,5 +30,5 @@ public class Country {
     private String region;
 
     @OneToMany(mappedBy = "country", cascade = CascadeType.PERSIST)
-    private List<City> cityList;
+    private List<User> userList;
 }

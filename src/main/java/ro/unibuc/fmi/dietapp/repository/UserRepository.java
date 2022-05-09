@@ -14,7 +14,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     //TODO: de pus sinonimele
     List<User> findAll();
 
-    List<User> findByCityId(Long id);
+    List<User> findByCountryId(Long id);
 
     Optional<User> findByUsername(String username);
 

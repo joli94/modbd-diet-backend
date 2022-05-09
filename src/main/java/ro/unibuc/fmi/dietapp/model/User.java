@@ -47,7 +47,7 @@ public class User {
     private List<Optimum_calories> optimumCaloriesList;
 
     @ManyToOne
-    private City city;
+    private Country country;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.PERSIST)
     private List<Weight> weightList;

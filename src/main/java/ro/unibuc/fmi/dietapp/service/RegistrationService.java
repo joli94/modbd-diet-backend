@@ -11,11 +11,11 @@ import javax.transaction.Transactional;
 @Transactional
 public class RegistrationService {
     private final UserService userService;
-    private final CityService cityService;
+    private final CountryService countryService;
 
-    public RegistrationService(UserService userService, CityService cityService) {
+    public RegistrationService(UserService userService, CountryService countryService) {
         this.userService = userService;
-        this.cityService = cityService;
+        this.countryService = countryService;
 
     }
 
@@ -28,7 +28,7 @@ public class RegistrationService {
                     .last_name(registration.getLast_name())
                     .birth_date(registration.getBirth_date())
                     .gender(registration.getGender())
-                    .city(cityService.findById(registration.getCity()))
+                    .country(countryService.findById(registration.getCountry()))
                     .isAdmin("NONE")
                     .build();
 

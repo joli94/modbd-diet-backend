@@ -19,8 +19,8 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public List<User> findByCityId(Long id) {
-        return userRepository.findByCityId(id);
+    public List<User> findByCountryId(Long id) {
+        return userRepository.findByCountryId(id);
     }
 
     public boolean existsByUsername(String username) {

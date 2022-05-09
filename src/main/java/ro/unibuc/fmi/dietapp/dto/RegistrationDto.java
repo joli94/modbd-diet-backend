@@ -19,7 +19,7 @@ public class RegistrationDto {
 
     private String gender;
 
-    private Long city;
+    private Long country;
 
     private String password;
 }

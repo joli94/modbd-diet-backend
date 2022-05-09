@@ -18,8 +18,7 @@ public class Registration {
 
     private String gender;
 
-    private Long city;
-    private String country;
+    private Long country;
 
     private String password;
 }

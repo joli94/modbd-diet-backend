@@ -29,5 +29,5 @@ public class UserDto {
 
     private String isAdmin;
 
-    private Long cityId;
+    private Long countryId;
 }

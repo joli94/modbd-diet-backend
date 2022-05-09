@@ -29,9 +29,9 @@ public class UserController {
         return new ResponseEntity<>(mapper.toDto(response), HttpStatus.OK);
     }
 
-    @GetMapping("/city")
-    public ResponseEntity<List<UserDto>> findByCity(@RequestParam Long id) {
-        List<User> response = service.findByCityId(id);
+    @GetMapping("/country")
+    public ResponseEntity<List<UserDto>> findByCountry(@RequestParam Long id) {
+        List<User> response = service.findByCountryId(id);
         return new ResponseEntity<>(mapper.toDto(response), HttpStatus.OK);
     }
 
