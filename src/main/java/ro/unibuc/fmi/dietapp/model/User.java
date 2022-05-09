@@ -53,9 +53,6 @@ public class User {
     private List<Weight> weightList;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.PERSIST)
-    private List<Happiness> happinessList;
-
-    @OneToMany(mappedBy = "user", cascade = CascadeType.PERSIST)
     private List<Billing> billingList;
 
     @OneToOne

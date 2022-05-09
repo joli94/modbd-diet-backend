@@ -59,11 +59,6 @@ public class ProjectConfig {
     }
 
     @Bean
-    public HappinessMapper happinessMapper() {
-        return new HappinessMapperImpl();
-    }
-
-    @Bean
     public IngredientMapper ingredientMapper() {
         return new IngredientMapperImpl();
     }
