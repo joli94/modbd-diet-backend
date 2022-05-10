@@ -23,9 +23,20 @@ public class UserController {
         this.service = service;
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<List<UserDto>> findAll() {
         List<User> response = service.findAll();
+        return new ResponseEntity<>(mapper.toDto(response), HttpStatus.OK);
+    }
+
+    @GetMapping("/ea")
+    public ResponseEntity<List<UserDto>> findAllInEasternEurope() {
+        List<User> response = service.findAllInEaEu();
+        return new ResponseEntity<>(mapper.toDto(response), HttpStatus.OK);
+    }
+    @GetMapping("/we")
+    public ResponseEntity<List<UserDto>> findAllinWesternEurope() {
+        List<User> response = service.findAllInWeEu();
         return new ResponseEntity<>(mapper.toDto(response), HttpStatus.OK);
     }
 

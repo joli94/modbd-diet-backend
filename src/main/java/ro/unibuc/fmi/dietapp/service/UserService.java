@@ -19,6 +19,14 @@ public class UserService {
         return userRepository.findAll();
     }
 
+    public List<User> findAllInEaEu() {
+        return userRepository.findAllInEaEu();
+    }
+
+    public List<User> findAllInWeEu() {
+        return userRepository.findAllInWeEu();
+    }
+
     public List<User> findByCountryId(Long id) {
         return userRepository.findByCountryId(id);
     }

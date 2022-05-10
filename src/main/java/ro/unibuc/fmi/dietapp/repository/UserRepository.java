@@ -20,6 +20,16 @@ public interface UserRepository extends JpaRepository<User, Long> {
     //TODOȘ QUERY-urile celelalte
     List<User> findAll();
 
+    @Query(value = "SELECT c.*, ea.first_name, ea.last_name, ea.target, ea.country_country_id\n" +
+            "FROM users_confidential c, users_eaeu ea\n" +
+            "WHERE c.user_id = ea.user_id", nativeQuery = true)
+    List<User> findAllInEaEu();
+
+    @Query(value = "SELECT c.*, we.first_name, we.last_name, we.target, we.country_country_id\n" +
+            "FROM users_confidential c, users_weeu we\n" +
+            "WHERE c.user_id = we.user_id", nativeQuery = true)
+    List<User> findAllInWeEu();
+
     List<User> findByCountryId(Long id);
 
     Optional<User> findByUsername(String username);
