@@ -8,11 +8,6 @@ import ro.unibuc.fmi.dietapp.mapper.*;
 public class ProjectConfig {
 
     @Bean
-    public AccountMapper accountMapper() {
-        return new AccountMapperImpl();
-    }
-
-    @Bean
     public BillingMapper billingMapper() {
         return new BillingMapperImpl();
     }

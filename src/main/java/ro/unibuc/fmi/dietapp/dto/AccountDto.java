@@ -2,7 +2,7 @@ package ro.unibuc.fmi.dietapp.dto;
 
 import lombok.*;
 
-@Getter
+/*@Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,3 +16,4 @@ public class AccountDto {
 
     private String active;
 }
+*/
