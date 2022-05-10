@@ -69,8 +69,8 @@ public class UserController {
     }
 
     @PutMapping("/changeAdmin")
-    public ResponseEntity<Void> changeAdmin(@RequestParam Long id) {
-        service.changeAdmin(id);
+    public ResponseEntity<Void> changeAdmin(@RequestParam Long id, @RequestParam String role) {
+        service.changeAdmin(id, role);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
