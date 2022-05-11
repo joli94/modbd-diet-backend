@@ -35,7 +35,7 @@ public class RegistrationService {
                     .isAdmin("NONE")
                     .build();
 
-            User resultedUser = userService.create(registeredUser);
+            userService.create(registeredUser);
 
         /*} else {
             throw new BadRequestException("This username is already taken");

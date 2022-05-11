@@ -64,8 +64,8 @@ public class UserController {
             throw new BadRequestException("The path variable doesn't match the request body id!");
         }
 
-        User response = service.update(mapper.toEntity(request));
-        return new ResponseEntity<>(mapper.toDto(response), HttpStatus.OK);
+        service.update(mapper.toEntity(request));
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PutMapping("/changeAdmin")

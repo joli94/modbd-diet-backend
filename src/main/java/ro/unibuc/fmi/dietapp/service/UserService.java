@@ -1,5 +1,6 @@
 package ro.unibuc.fmi.dietapp.service;
 
+import org.hibernate.Session;
 import org.springframework.stereotype.Service;
 import ro.unibuc.fmi.dietapp.exception.EntityNotFoundException;
 import ro.unibuc.fmi.dietapp.model.User;
@@ -10,6 +11,7 @@ import java.util.List;
 @Service
 public class UserService {
     private final UserRepository userRepository;
+    private Session session;
 
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
@@ -47,13 +49,13 @@ public class UserService {
         );
     }
 
-    public User create(User user) {
-        return userRepository.save(user);
+    public void create(User user) {
+        userRepository.create(user.getFirst_name(), user.getLast_name(), user.getGender(), user.getTarget(), user.getUsername(), user.getCountry().getId(), user.getBirth_date(), user.getCnp(), user.getCardNumber(), user.getIsAdmin());
     }
 
-    public User update(User user) {
-        if (userRepository.existsById(user.getId())) {
-            return userRepository.save(user);
+    public void update(User user) {
+        if (userRepository.findById(user.getId()).isPresent()) {
+             userRepository.update(user.getId(), user.getFirst_name(), user.getLast_name(), user.getGender(), user.getTarget(), user.getCnp(), user.getCardNumber(), user.getIsAdmin());
         } else {
             throw new EntityNotFoundException(String.format("There is no user with id=%s in the database!", user.getId().toString()));
         }

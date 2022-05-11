@@ -1,12 +1,14 @@
 package ro.unibuc.fmi.dietapp.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-import ro.unibuc.fmi.dietapp.model.Billing;
 import ro.unibuc.fmi.dietapp.model.User;
 
+import javax.transaction.Transactional;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -65,10 +67,38 @@ public interface UserRepository extends JpaRepository<User, Long> {
             "WHERE user_id = ?", nativeQuery = true)
     Optional<User> findById(Long id);
 
+    @Modifying
     @Query(value = "INSERT INTO users_view(first_name, last_name, gender, target, username, country_country_id, birth_date, cnp, card_number, is_admin) " +
-                   "values (:user.first_name, :user.last_name, :user.gender, :user.target, :user.username, :user.country.id, :user.birth_date, :user.cnp, :user.cardNumber, :user.isAdmin)", nativeQuery = true)
-    User save(@Param("user") User user );
+                   "VALUES (:first_name, :last_name, :gender, :target, :username, :country_id, :birth_date, :cnp, :card_number, :is_admin)", nativeQuery = true)
+    void create (@Param("first_name") String first_name,
+                 @Param("last_name") String last_name,
+                 @Param("gender") String gender,
+                 @Param("target") String target,
+                 @Param("username") String username,
+                 @Param("country_id") Long country_id,
+                 @Param("birth_date") LocalDate birth_date,
+                 @Param("cnp") String cnp,
+                 @Param("card_number") String card_number,
+                 @Param("is_admin") String is_admin);
 
+    @Modifying
+    @Transactional
+    @Query(value =  "UPDATE users_view " +
+                    "SET first_name = :first_name, " +
+                    "last_name = :last_name," +
+                    "gender = :gender, " +
+                    "target = :target, " +
+                    "cnp = :cnp, " +
+                    "card_number = :card_number, " +
+                    "is_admin = :is_admin " +
+                    "WHERE user_id = :user_id", nativeQuery = true)
+    void update (@Param("user_id") Long user_id,
+                 @Param("first_name") String first_name,
+                 @Param("last_name") String last_name,
+                 @Param("gender") String gender,
+                 @Param("target") String target,
+                 @Param("cnp") String cnp,
+                 @Param("card_number") String card_number,
+                 @Param("is_admin") String is_admin);
 
-    //boolean existsByUsername(String username);
 }

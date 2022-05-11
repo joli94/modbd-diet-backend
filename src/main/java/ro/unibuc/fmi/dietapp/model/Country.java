@@ -29,6 +29,6 @@ public class Country {
     @Column(name = "COUNTRY_REGION", columnDefinition = "varchar2(1)")
     private String region;
 
-    @OneToMany(mappedBy = "country", cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "country", cascade = CascadeType.ALL)
     private List<User> userList;
 }
