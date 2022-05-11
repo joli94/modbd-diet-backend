@@ -1,19 +1,25 @@
 package ro.unibuc.fmi.dietapp.service;
 
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 import ro.unibuc.fmi.dietapp.exception.EntityNotFoundException;
 import ro.unibuc.fmi.dietapp.model.Billing;
+import ro.unibuc.fmi.dietapp.model.Payment;
 import ro.unibuc.fmi.dietapp.repository.BillingRepository;
+import ro.unibuc.fmi.dietapp.repository.PaymentRepository;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
 public class BillingService {
     private final BillingRepository billingRepository;
+    private final PaymentService paymentService;
 
-    public BillingService(BillingRepository billingRepository) {
+    public BillingService(BillingRepository billingRepository, PaymentService paymentService) {
         this.billingRepository = billingRepository;
+        this.paymentService = paymentService;
     }
 
     public List<Billing> findAll() {
@@ -30,8 +36,13 @@ public class BillingService {
         );
     }
 
-    public Billing create(Billing billing) {
-        billing.getPayment().setDate(LocalDate.now());
-        return billingRepository.save(billing);
+    public void create(Billing billing) {
+        Payment payment = Payment.builder()
+                .date(LocalDate.now())
+                .amount(120L)
+                .build();
+
+        Payment response = paymentService.create(payment);
+        billingRepository.create(billing.getDiet().getId(), response.getId(), billing.getUser().getId());
     }
 }

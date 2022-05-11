@@ -40,8 +40,8 @@ public class BillingController {
     }
 
     @PostMapping
-    public ResponseEntity<BillingDto> create(@RequestBody BillingDto request) {
-        Billing response = service.create(mapper.toEntity(request));
-        return new ResponseEntity<>(mapper.toDto(response), HttpStatus.CREATED);
+    public ResponseEntity<Void> create(@RequestBody BillingDto request) {
+        service.create(mapper.toEntity(request));
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 }
