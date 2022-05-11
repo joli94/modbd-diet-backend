@@ -20,7 +20,7 @@ public class RegistrationService {
     }
 
     public void create(Registration registration) {
-        if (!userService.existsByUsername(registration.getUsername())) {
+        //if (!userService.existsByUsername(registration.getUsername())) {
 
             User registeredUser = User.builder()
                     .username(registration.getUsername())
@@ -29,13 +29,16 @@ public class RegistrationService {
                     .birth_date(registration.getBirth_date())
                     .gender(registration.getGender())
                     .country(countryService.findById(registration.getCountry()))
+                    .cnp(registration.getCnp())
+                    .cardNumber(registration.getCardNumber())
+                    .target(registration.getTarget())
                     .isAdmin("NONE")
                     .build();
 
             User resultedUser = userService.create(registeredUser);
 
-        } else {
+        /*} else {
             throw new BadRequestException("This username is already taken");
-        }
+        }*/
     }
 }

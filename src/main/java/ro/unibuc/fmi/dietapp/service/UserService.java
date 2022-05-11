@@ -31,9 +31,9 @@ public class UserService {
         return userRepository.findByCountryId(id);
     }
 
-    public boolean existsByUsername(String username) {
+    /*public boolean existsByUsername(String username) {
         return userRepository.existsByUsername(username);
-    }
+    }*/
 
     public User findById(Long id) {
         return userRepository.findById(id).orElseThrow(

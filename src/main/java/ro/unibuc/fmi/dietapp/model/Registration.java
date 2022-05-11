@@ -16,9 +16,11 @@ public class Registration {
 
     private LocalDate birth_date;
 
+    private String target;
     private String gender;
 
     private Long country;
 
-    private String password;
+    private String cnp;
+    private String cardNumber;
 }
