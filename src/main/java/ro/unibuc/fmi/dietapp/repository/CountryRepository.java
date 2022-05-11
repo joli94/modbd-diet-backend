@@ -2,10 +2,8 @@ package ro.unibuc.fmi.dietapp.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import ro.unibuc.fmi.dietapp.model.Country;
-import ro.unibuc.fmi.dietapp.model.User;
 
 import java.util.List;
 import java.util.Optional;

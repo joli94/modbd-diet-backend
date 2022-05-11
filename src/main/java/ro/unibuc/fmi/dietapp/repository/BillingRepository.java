@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 import ro.unibuc.fmi.dietapp.model.Billing;
 
 import javax.transaction.Transactional;
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 

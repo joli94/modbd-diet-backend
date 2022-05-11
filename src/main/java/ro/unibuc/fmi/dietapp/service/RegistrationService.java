@@ -1,7 +1,6 @@
 package ro.unibuc.fmi.dietapp.service;
 
 import org.springframework.stereotype.Service;
-import ro.unibuc.fmi.dietapp.exception.BadRequestException;
 import ro.unibuc.fmi.dietapp.model.Registration;
 import ro.unibuc.fmi.dietapp.model.User;
 

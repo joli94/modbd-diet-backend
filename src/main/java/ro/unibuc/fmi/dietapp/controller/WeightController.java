@@ -4,7 +4,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ro.unibuc.fmi.dietapp.dto.WeightDto;
-import ro.unibuc.fmi.dietapp.exception.BadRequestException;
 import ro.unibuc.fmi.dietapp.mapper.WeightMapper;
 import ro.unibuc.fmi.dietapp.model.Weight;
 import ro.unibuc.fmi.dietapp.service.WeightService;

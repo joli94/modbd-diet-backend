@@ -1,15 +1,12 @@
 package ro.unibuc.fmi.dietapp.service;
 
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 import ro.unibuc.fmi.dietapp.exception.EntityNotFoundException;
 import ro.unibuc.fmi.dietapp.model.Billing;
 import ro.unibuc.fmi.dietapp.model.Payment;
 import ro.unibuc.fmi.dietapp.repository.BillingRepository;
-import ro.unibuc.fmi.dietapp.repository.PaymentRepository;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
