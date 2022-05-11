@@ -48,9 +48,9 @@ public class User {
     @ManyToOne
     private Country country;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.PERSIST)
     private List<Weight> weightList;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.PERSIST)
     private List<Billing> billingList;
 }
