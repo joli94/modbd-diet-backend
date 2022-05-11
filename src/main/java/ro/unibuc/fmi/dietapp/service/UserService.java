@@ -62,10 +62,6 @@ public class UserService {
     }
 
     public void changeAdmin(Long id, String role) {
-        User toBeChanged = findById(id);
-
-        toBeChanged.setIsAdmin(role);
-
-        userRepository.save(toBeChanged);
+        userRepository.changeAdmin(id, role);
     }
 }

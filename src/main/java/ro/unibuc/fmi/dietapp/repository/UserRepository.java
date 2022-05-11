@@ -101,4 +101,12 @@ public interface UserRepository extends JpaRepository<User, Long> {
                  @Param("card_number") String card_number,
                  @Param("is_admin") String is_admin);
 
+    @Modifying
+    @Transactional
+    @Query(value =  "UPDATE users_view " +
+            "SET is_admin = :is_admin " +
+            "WHERE user_id = :user_id", nativeQuery = true)
+    void changeAdmin (@Param("user_id") Long user_id,
+                 @Param("is_admin") String is_admin);
+
 }
