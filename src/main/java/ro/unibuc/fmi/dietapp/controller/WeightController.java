@@ -42,18 +42,8 @@ public class WeightController {
     }
 
     @PostMapping
-    public ResponseEntity<WeightDto> create(@RequestBody WeightDto request) {
-        Weight response = service.create(mapper.toEntity(request));
-        return new ResponseEntity<>(mapper.toDto(response), HttpStatus.CREATED);
-    }
-
-    @PutMapping("/{id}")
-    public ResponseEntity<WeightDto> update(@PathVariable Long id, @RequestBody WeightDto request) {
-        if (!id.equals(request.getId())) {
-            throw new BadRequestException("The path variable doesn't match the request body id!");
-        }
-
-        Weight response = service.update(mapper.toEntity(request));
-        return new ResponseEntity<>(mapper.toDto(response), HttpStatus.OK);
+    public ResponseEntity<Void> create(@RequestBody WeightDto request) {
+        service.create(mapper.toEntity(request));
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 }

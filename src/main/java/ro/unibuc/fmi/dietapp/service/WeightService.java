@@ -30,17 +30,7 @@ public class WeightService {
         );
     }
 
-    public Weight create(Weight weight) {
-        weight.setDate(LocalDateTime.now());
-        return weightRepository.save(weight);
-    }
-
-    public Weight update(Weight weight) {
-        if (weightRepository.existsById(weight.getId())) {
-            weight.setDate(LocalDateTime.now());
-            return weightRepository.save(weight);
-        } else {
-            throw new EntityNotFoundException(String.format("There is no weight measurement with id=%s in the database!", weight.getId().toString()));
-        }
+    public void create(Weight weight) {
+        weightRepository.create(LocalDateTime.now(), weight.getValue(), weight.getUser().getId());
     }
 }
