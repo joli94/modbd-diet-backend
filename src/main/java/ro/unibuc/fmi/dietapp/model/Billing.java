@@ -1,6 +1,8 @@
 package ro.unibuc.fmi.dietapp.model;
 
 import lombok.*;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
 import javax.persistence.*;
 
@@ -17,7 +19,8 @@ public class Billing {
     @Column(name = "BILLING_ID")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @NotFound(action = NotFoundAction.IGNORE)
     private User user;
 
     @ManyToOne
