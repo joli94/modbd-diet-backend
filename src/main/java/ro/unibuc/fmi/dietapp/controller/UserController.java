@@ -46,7 +46,7 @@ public class UserController {
         return new ResponseEntity<>(mapper.toDto(response), HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/u/{id}")
     public ResponseEntity<UserDto> findById(@PathVariable Long id) {
         User response = service.findById(id);
         return new ResponseEntity<>(mapper.toDto(response), HttpStatus.OK);
@@ -58,7 +58,7 @@ public class UserController {
         return new ResponseEntity<>(mapper.toDto(response), HttpStatus.OK);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/u/{id}")
     public ResponseEntity<UserDto> update(@PathVariable Long id, @RequestBody UserDto request) {
         if (!id.equals(request.getId())) {
             throw new BadRequestException("The path variable doesn't match the request body id!");
