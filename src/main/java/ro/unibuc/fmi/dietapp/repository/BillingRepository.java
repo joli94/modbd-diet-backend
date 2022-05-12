@@ -24,9 +24,8 @@ public interface BillingRepository extends JpaRepository<Billing, Long> {
 
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO billings (diet_diet_id, payment_payment_id, user_user_id) " +
-            "VALUES (:diet, :payment, :user_id)", nativeQuery = true)
+    @Query(value = "INSERT INTO billings (diet_diet_id, user_user_id) " +
+            "VALUES (:diet, :user_id)", nativeQuery = true)
     void create(@Param("diet") Long diet,
-                @Param("payment") Long payment,
                 @Param("user_id") Long user_id);
 }

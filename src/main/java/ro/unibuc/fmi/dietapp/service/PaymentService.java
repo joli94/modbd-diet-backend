@@ -25,7 +25,7 @@ public class PaymentService {
         );
     }
 
-    public Payment create(Payment payment) {
-        return paymentRepository.save(payment);
+    public void create(Payment payment) {
+        paymentRepository.create(payment.getAmount(), payment.getDate(), payment.getUser().getId());
     }
 }

@@ -53,4 +53,7 @@ public class User {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.PERSIST)
     private List<Billing> billingList;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.PERSIST)
+    private List<Payment> paymentList;
 }

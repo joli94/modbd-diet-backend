@@ -36,10 +36,11 @@ public class BillingService {
     public void create(Billing billing) {
         Payment payment = Payment.builder()
                 .date(LocalDate.now())
-                .amount(120L)
+                .amount(billing.getDiet().getPrice())
+                .user(billing.getUser())
                 .build();
 
-        Payment response = paymentService.create(payment);
-        billingRepository.create(billing.getDiet().getId(), response.getId(), billing.getUser().getId());
+        paymentService.create(payment);
+        billingRepository.create(billing.getDiet().getId(), billing.getUser().getId());
     }
 }
