@@ -27,5 +27,6 @@ public class Billing {
     private Diet diet;
 
     @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @NotFound(action = NotFoundAction.IGNORE)
     private Payment payment;
 }

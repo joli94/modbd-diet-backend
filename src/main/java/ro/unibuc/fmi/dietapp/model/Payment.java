@@ -27,6 +27,7 @@ public class Payment {
     private Long amount;
 
     @OneToOne
+    @NotFound(action = NotFoundAction.IGNORE)
     private Billing billing;
 
     @ManyToOne(fetch = FetchType.LAZY)
